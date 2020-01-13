@@ -5,6 +5,7 @@ button{
     background-color: teal;
     color: white;
     font-weight: bold;
+    margin: 2px;
 }
 .nav-bar{
     margin-bottom: 5px;
