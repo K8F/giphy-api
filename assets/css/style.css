@@ -7,8 +7,11 @@ button{
     font-weight: bold;
     margin: 2px;
 }
+label{
+    font-weight: bold;
+}
 #nav-bar{
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 #new-button-input{
     float:right;
@@ -19,5 +22,5 @@ button{
 .celeb-gif{
     width: 200px;
     height: 200px;
-    margin: 5px;
+    margin: 10px;
 }

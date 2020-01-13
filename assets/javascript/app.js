@@ -1,4 +1,4 @@
-console.log("is this working?")
+//console.log("is this working?")
 $(document).ready(function () {
 
     //initial array of celebrities
@@ -11,6 +11,8 @@ $(document).ready(function () {
             var btn = `<button class="celeb" info=${i}>${topics[i]}</button>`
             $("#celeb-buttons").append(btn)
         }
+
+        //event listener to show gifs for clicked on celebrity
         $('.celeb').on('click', function () {
             var index = $(this).attr("info");
             search(topics[index])
@@ -19,6 +21,8 @@ $(document).ready(function () {
 
     }
 
+
+    //function to show gifs for the celebrity button the user clicks on. 
     function search(celebrity) {
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + celebrity + "&api_key=GbRihUv0Hb08GrTIBghIXh1vFSkQWBxt&limit=10";
         console.log(queryURL);
@@ -30,24 +34,29 @@ $(document).ready(function () {
 
             var results = response.data;
             for (var i=0; i<results.length; i++){
+                //img has two sources: one for still photo (src) and one for moving gif (alt-src)
                 var img = '<img class="celeb-gif" alt-src=' + results[i].images.downsized.url  + ' src=' + results[i].images.downsized_still.url + '>'
                 $("#gif-output").append(img);
             }
 
+            //event listener for starting and stopping gi
             $('.celeb-gif').on('click', function(){
+                //swaps src and alt-src
                 var src = $(this).attr("src")
                 var altSrc= $(this).attr("alt-src")
                 $(this).attr("src", altSrc)
                 $(this).attr("alt-src", src) 
             })            
 
-            console.log(response);
+            console.log(response);//console log to see giphy object
         })
 
    
     }
 
 
+
+    //event listenr to add new celebrity buttons
     $('#add').on('click', function(){
         event.preventDefault()
         console.log("click add")
@@ -57,11 +66,10 @@ $(document).ready(function () {
         topics.push(input);
         renderButtons();
     })
-
     renderButtons()
 
 });
 
-//redender set of default buttons (var=celebrities)
+//reder set of default buttons (var=celebrities)
 //build a form to gather information that user wants
 //
