@@ -1,0 +1,22 @@
+body{
+    background-color: grey;
+}
+button{
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+}
+.nav-bar{
+    margin-bottom: 5px;
+}
+#new-button-input{
+    float:right;
+}
+#gif-output{
+    clear: right;
+}
+.celeb-gif{
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+}
