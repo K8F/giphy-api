@@ -2,18 +2,18 @@ console.log("is this working?")
 $(document).ready(function () {
 
     //initial array of celebrities
-    var celebrities = ["Beyonce", "Kim Kardashian", "Tom Cruise", "Dwayne Johnson", "Britney Spears"];
+    var topics = ["Beyonce", "Kim Kardashian", "Tom Cruise", "Dwayne Johnson", "Britney Spears"];
 
     //write function for HTML to display current content
     function renderButtons() {
         $("#celeb-buttons").empty();
-        for (var i = 0; i < celebrities.length; i++) {
-            var btn = `<button class="celeb" info=${i}>${celebrities[i]}</button>`
+        for (var i = 0; i < topics.length; i++) {
+            var btn = `<button class="celeb" info=${i}>${topics[i]}</button>`
             $("#celeb-buttons").append(btn)
         }
         $('.celeb').on('click', function () {
             var index = $(this).attr("info");
-            search(celebrities[index])
+            search(topics[index])
 
         })
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
         var input = $('#add-celeb').val();
         console.log(input)
         search(input);
-        celebrities.push(input);
+        topics.push(input);
         renderButtons();
     })
 
