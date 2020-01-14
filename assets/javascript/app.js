@@ -1,4 +1,4 @@
-//saddconsole.log("is this working?")
+console.log("is this working?")
 $(document).ready(function () {
 
     //initial array of celebrities
@@ -34,13 +34,19 @@ $(document).ready(function () {
 
             var results = response.data;
             for (var i=0; i<results.length; i++){
+                var gifContain = $('<div>');
+                gifContain.addClass('gif-container');
                 //var showDiv = $("<div class='col-4'>")
                 var rating = results[i].rating;
-                var p = $("<p id='rating'>").text("Rating: " + rating);
+                var p = $("<p>");
+                p.addClass('gif-rating');
+                p.text("Rating: " + rating);
                 //img has two sources: one for still photo (src) and one for moving gif (alt-src)
                 var img = '<img class="celeb-gif" alt-src=' + results[i].images.downsized.url  + ' src=' + results[i].images.downsized_still.url + '>'
-                $("#gif-output").append(p);
-                $("#gif-output").append(img);
+                gifContain.prepend(img);
+                gifContain.append(p);
+
+                $('#gif-output').append(gifContain);
                
 
             }
