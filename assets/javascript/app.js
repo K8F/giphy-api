@@ -77,6 +77,7 @@ $(document).ready(function () {
         search(input);
         topics.push(input);
         renderButtons();
+        $("#add-celeb").val("");
     })
     renderButtons()
 
